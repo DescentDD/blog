@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/uncategorized/2023/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
+    <title>二战理解linux</title>
+    <url>/uncategorized/2023/%E4%BA%8C%E6%88%98%E7%90%86%E8%A7%A3linux/</url>
+    <content><![CDATA[<h2 id="一些文件夹的名字"><a href="#一些文件夹的名字" class="headerlink" title="一些文件夹的名字"></a>一些文件夹的名字</h2><ul>
+<li><strong>&#x2F;bin</strong>：<br>常用命令目录</li>
+<li><strong>&#x2F;boot：</strong><br>核心文件</li>
+<li><strong>&#x2F;dev ：</strong><br>Device，Linux 的外部设备</li>
+<li><strong>&#x2F;home</strong>：<br>主目录</li>
+<li><strong>&#x2F;lib</strong>：<br>Library基本的动态连接共享库</li>
+<li><strong>&#x2F;root</strong>：<br>管理员主目录</li>
+<li><strong>&#x2F;tmp</strong>：<br>存放临时文件的</li>
+<li><strong>&#x2F;usr</strong>：<br>类似program files目录</li>
+<li><strong>&#x2F;usr&#x2F;bin：</strong><br>系统用户的应用程序</li>
+<li><strong>&#x2F;var</strong>：<br>变量库</li>
+<li><strong>&#x2F;run</strong>：<br>临时文件系统</li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="目录的"><a href="#目录的" class="headerlink" title="目录的"></a>目录的</h3><ul>
+<li><strong>ls</strong>:<br> 列目录<br>-al全部，大概这样<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  drwxr-xr-x  20 root root       4096  6月  5 22:58 .</span><br><span class="line">   drwxr-xr-x  20 root root       4096  6月  5 22:58 ..</span><br><span class="line">   lrwxrwxrwx   1 root root          7  6月  5 22:54 bin -&gt; usr/bin</span><br><span class="line">   drwxr-xr-x   4 root root       4096  6月  8 21:10 boot</span><br><span class="line">   drwxrwxr-x   2 root root       4096  6月  5 22:58 cdrom</span><br><span class="line">   drwxr-xr-x  19 root root       4140  6月  8 20:42 dev</span><br><span class="line">   drwxr-xr-x 130 root root      12288  6月  8 21:23 etc</span><br><span class="line">   drwxr-xr-x   3 root root       4096  6月  5 23:00 home</span><br><span class="line">……</span><br></pre></td></tr></table></figure></li>
+<li><strong>cd、mkdir、cp、mv</strong>:<br> 不解释<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -m配权限 -p连着它的上级一起创</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mv -f强制-i询问覆盖</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -p完全复制连带着属性-f强制-s快捷方式</span><br></pre></td></tr></table></figure></li>
+<li><strong>pwd</strong>:<br> 显示当前地址</li>
+<li><strong>rm</strong>:<br> 删文件<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -f强制-i删前询问-r递归也就是可以杀文件夹</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="看文件的"><a href="#看文件的" class="headerlink" title="看文件的"></a>看文件的</h3><ul>
+<li><strong>cat</strong>:<br> 从第一行显示<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat -b列出有效行号-E显示$终止符-n列出包括空白行号-v列出特殊字符</span><br></pre></td></tr></table></figure></li>
+<li><strong>tac</strong>:<br> 反向显示</li>
+<li><strong>less</strong>:<br> 一页一页翻<br>pagedown&#x2F;up：翻页<br>&#x2F;字串或者？字串：向上&#x2F;向下搜索<br>q：离开</li>
+<li><strong>head&#x2F;tail</strong>：<br> 正向&#x2F;反向取出文件前几行<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">head -n 数字：显示几行</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install 软件</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
   </entry>
 </search>
