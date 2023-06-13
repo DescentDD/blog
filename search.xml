@@ -45,4 +45,14 @@
         <tag>涩涩</tag>
       </tags>
   </entry>
+  <entry>
+    <title>爪巴虫实战</title>
+    <url>/uncategorized/2023/%E7%88%AA%E5%B7%B4%E8%99%AB%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<h1 id="爪巴虫！实战！"><a href="#爪巴虫！实战！" class="headerlink" title="爪巴虫！实战！"></a>爪巴虫！实战！</h1><h2 id="派森！启动！"><a href="#派森！启动！" class="headerlink" title="派森！启动！"></a>派森！启动！</h2><h3 id="浏览器！启动！"><a href="#浏览器！启动！" class="headerlink" title="浏览器！启动！"></a>浏览器！启动！</h3><p>F12！启动！<br>源码！看不懂！<br>派恰姆！启动！<br>以下是源码，爬旧博客的相册：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url=<span class="string">&quot;https://old.descentdd.top/about/&quot;</span></span><br><span class="line"></span><br><span class="line">response=requests.get(url=url)</span><br><span class="line">response=re.findall(<span class="string">&quot;&lt;img src=\&quot;(.*?)\&quot; class=\&quot;responsive-img\&quot;&gt;&quot;</span>,response.text)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(response)):</span><br><span class="line">    response[i]=<span class="string">&quot;https://old.descentdd.top/&quot;</span>+response[i][<span class="number">3</span>:]</span><br><span class="line"><span class="built_in">print</span>(response)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(response)):</span><br><span class="line">    req=requests.get(response[i])</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&quot;a<span class="subst">&#123;i&#125;</span>.png&quot;</span>,<span class="string">&quot;wb&quot;</span>)<span class="keyword">as</span> f:</span><br><span class="line">        f.write(req.content)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;done&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="派森！关闭"><a href="#派森！关闭" class="headerlink" title="派森！关闭"></a>派森！关闭</h2><h1 id="圆神！启动！"><a href="#圆神！启动！" class="headerlink" title="圆神！启动！"></a>圆神！启动！</h1>]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
