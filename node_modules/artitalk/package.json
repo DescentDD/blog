@@ -1,0 +1,49 @@
+{
+  "_from": "artitalk",
+  "_inBundle": false,
+  "_integrity": "sha1-0un24ymYVviF4m8uMJGTTCDLZ9A=",
+  "_location": "/artitalk",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "artitalk",
+    "name": "artitalk",
+    "escapedName": "artitalk",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/artitalk/download/artitalk-3.1.1.tgz",
+  "_shasum": "d2e9f6e3299856f885e26f2e3091934c20cb67d0",
+  "_spec": "artitalk",
+  "_where": "X:\\软件",
+  "author": {
+    "name": "Uncle_drew"
+  },
+  "bugs": {
+    "url": "https://github.com/Drew233/Artitalk/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "基于leancloud实现的静态页面可实时发布说说/微语的js",
+  "homepage": "https://github.com/Drew233/Artitalk#readme",
+  "keywords": [
+    "静态"
+  ],
+  "license": "MIT",
+  "main": "artitalk.js",
+  "name": "artitalk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drew233/Artitalk.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.3.4"
+}
