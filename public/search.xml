@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AzureTTS使用python代码</title>
+    <url>/uncategorized/2023/AzureTTS%E4%BD%BF%E7%94%A8python%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h2 id="Azure介绍"><a href="#Azure介绍" class="headerlink" title="Azure介绍"></a>Azure介绍</h2><p>是什么我不用多说吧</p>
+<h2 id="直接上代码，调用AzureTTS接口"><a href="#直接上代码，调用AzureTTS接口" class="headerlink" title="直接上代码，调用AzureTTS接口"></a>直接上代码，调用AzureTTS接口</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> azure.cognitiveservices.speech <span class="keyword">as</span> speechsdk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置api</span></span><br><span class="line">speech_config = speechsdk.SpeechConfig(subscription=<span class="string">&#x27;SPEECH_KEY&#x27;</span>, region=<span class="string">&#x27;SPEECH_REGION&#x27;</span>)</span><br><span class="line">audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 语言选择</span></span><br><span class="line">speech_config.speech_synthesis_voice_name=<span class="string">&#x27;zh-CN-XiaoyiNeural&#x27;</span></span><br><span class="line"></span><br><span class="line">speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line">    <span class="comment"># 说话说话！</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;说话说话！&quot;</span>)</span><br><span class="line">    text = <span class="built_in">input</span>()</span><br><span class="line">    speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;说：&#123;&#125;&quot;</span>.<span class="built_in">format</span>(text))</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<h2 id="有什么用捏？"><a href="#有什么用捏？" class="headerlink" title="有什么用捏？"></a>有什么用捏？</h2><p>可以拿来做语音助手或者老婆！</p>
+]]></content>
+      <tags>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyQt初见_强制更新程序</title>
+    <url>/uncategorized/2023/PyQt%E5%88%9D%E8%A7%81-%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="PyQt挺好用"><a href="#PyQt挺好用" class="headerlink" title="PyQt挺好用"></a>PyQt挺好用</h1><h2 id="上源码"><a href="#上源码" class="headerlink" title="上源码"></a>上源码</h2><h3 id="瞎搞的强制更新程序，来练手（"><a href="#瞎搞的强制更新程序，来练手（" class="headerlink" title="瞎搞的强制更新程序，来练手（"></a>瞎搞的强制更新程序，来练手（</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow, QPushButton,QLabel,QProgressBar,QWidget</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QFont</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> QTimer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">updatE</span>(<span class="title class_ inherited__">QMainWindow</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.initUI()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">initUI</span>(<span class="params">self</span>):</span><br><span class="line">        self.setGeometry(<span class="number">100</span>, <span class="number">100</span>, <span class="number">500</span>, <span class="number">200</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">&quot;更新&quot;</span>)</span><br><span class="line"></span><br><span class="line">        self.label=QLabel(<span class="string">&quot;发现新版本,在线更新&quot;</span>,self)</span><br><span class="line">        self.label.setFont(QFont(<span class="string">&quot;Roman times&quot;</span>, <span class="number">15</span>, QFont.Bold))</span><br><span class="line">        self.label.setGeometry(<span class="number">50</span>, <span class="number">40</span>, <span class="number">450</span>, <span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">        self.progressbar = QProgressBar(self)</span><br><span class="line">        self.progressbar.setGeometry(<span class="number">50</span>, <span class="number">140</span>, <span class="number">250</span>, <span class="number">40</span>)</span><br><span class="line">        self.progressbar.setVisible(<span class="literal">False</span>)</span><br><span class="line">        self.timer=QTimer(self)</span><br><span class="line">        self.timer.timeout.connect(self.update_progressbar)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        self.button = QPushButton(<span class="string">&quot;确定&quot;</span>, self)</span><br><span class="line">        self.button.setGeometry(<span class="number">320</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">40</span>)</span><br><span class="line">        self.button.clicked.connect(self.update)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update</span>(<span class="params">self</span>):</span><br><span class="line">        self.progressbar.setVisible(<span class="literal">True</span>)</span><br><span class="line">        self.label.setText(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        self.button.deleteLater()</span><br><span class="line">        self.progressbar.setValue(<span class="number">0</span>)</span><br><span class="line">        self.progressbar.setMaximum(<span class="number">100</span>)</span><br><span class="line">        self.timer.start(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update_progressbar</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.progressbar.value() &lt; <span class="number">100</span>:</span><br><span class="line">            self.progressbar.setValue(self.progressbar.value() + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.timer.stop()</span><br><span class="line">            self.label.setText(<span class="string">&quot;更新完成&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    window = updatE()</span><br><span class="line">    window.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二战理解linux</title>
     <url>/uncategorized/2023/%E4%BA%8C%E6%88%98%E7%90%86%E8%A7%A3linux/</url>
     <content><![CDATA[<h2 id="一些文件夹的名字"><a href="#一些文件夹的名字" class="headerlink" title="一些文件夹的名字"></a>一些文件夹的名字</h2><ul>
@@ -90,6 +114,26 @@
       </tags>
   </entry>
   <entry>
+<<<<<<< Updated upstream
+=======
+    <title>练个正则和爪巴虫，爬x岛主页，顺便推荐孤零零工业革命</title>
+    <url>/uncategorized/2023/%E7%BB%83%E4%B8%AA%E6%AD%A3%E5%88%99%E5%92%8C%E7%88%AA%E5%B7%B4%E8%99%AB%E7%88%ACx%E5%B2%9B%E4%B8%BB%E9%A1%B5%E9%A1%BA%E4%BE%BF%E6%8E%A8%E8%8D%90%E5%AD%A4%E9%9B%B6%E9%9B%B6%E5%B7%A5%E4%B8%9A%E9%9D%A9%E5%91%BD/</url>
+    <content><![CDATA[<h1 id="考完试不想卷"><a href="#考完试不想卷" class="headerlink" title="考完试不想卷"></a>考完试不想卷</h1><p>我时常在想，爱好是什么呢，现在或许有答案了，就是折腾一些看似有用实则纯粹浪费时间的东西，跟打游戏也没两样。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url = <span class="string">&#x27;https://www.nmbxd1.com/Forum/timeline/id/1&#x27;</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line">response.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line"></span><br><span class="line">titles=re.findall(<span class="string">r&#x27;&lt;div class=&quot;h-threads-content&quot;&gt;([\S\s]*?)&lt;/div&gt;&#x27;</span>,response.text)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span> (<span class="string">&#x27;test.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> title <span class="keyword">in</span> titles:</span><br><span class="line">        title=title.strip()</span><br><span class="line">        title=re.sub(<span class="string">r&#x27;&lt;.*?&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,title)</span><br><span class="line">        title=re.sub(<span class="string">r&#x27;&amp;gt;&amp;gt;No\w*?&#x27;</span>,<span class="string">&#x27;&#x27;</span>,title)</span><br><span class="line">        title=re.sub(<span class="string">r&#x27;\.\w*?&#x27;</span>,<span class="string">&#x27;&#x27;</span>,title)</span><br><span class="line">        <span class="built_in">print</span>(title)</span><br><span class="line">        f.write(title+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="知道这个博客的比知道我推特的人还少，所以就真当垃圾桶了写点垃圾话"><a href="#知道这个博客的比知道我推特的人还少，所以就真当垃圾桶了写点垃圾话" class="headerlink" title="知道这个博客的比知道我推特的人还少，所以就真当垃圾桶了写点垃圾话"></a>知道这个博客的比知道我推特的人还少，所以就真当垃圾桶了写点垃圾话</h3><p>我时常想，我学这些东西的意义是什么。我清楚的知道我在瞎搞，是脚本小子，是调包侠，没学到什么真东西。而且还穷，还抠，不愿意为自己付出。</p>
+<p>我后来这么觉得，我学这些，学的只是个高兴。确实，写py让心里平静。</p>
+<p>这里推一首曲子，写py的时候常听的，能让心里平静的。</p>
+<iframe src="//player.bilibili.com/player.html?aid=224286578&bvid=BV1D8411T7Z2&cid=1007464575&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>挺喜欢mc的，只是这两年浮躁了。<br>赶着去投胎呢。</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+>>>>>>> Stashed changes
     <title>简单记一下cmd命令</title>
     <url>/uncategorized/2023/%E7%AE%80%E5%8D%95%E8%AE%B0%E4%B8%80%E4%B8%8Bcmd%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="1、常识"><a href="#1、常识" class="headerlink" title="1、常识"></a>1、常识</h1><p>可以输个help问win系统自己</p>
@@ -158,9 +202,12 @@
         <tag>windows</tag>
       </tags>
   </entry>
+<<<<<<< Updated upstream
   <entry>
     <title>耶复活啦</title>
     <url>/uncategorized/2023/%E8%80%B6%E5%A4%8D%E6%B4%BB%E5%95%A6/</url>
     <content><![CDATA[<h1 id="那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！"><a href="#那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！" class="headerlink" title="那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！"></a>那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！</h1><h2 id="喵喵灵堂"><a href="#喵喵灵堂" class="headerlink" title="喵喵灵堂"></a><a href="https://www.descentdd.top/rip.html">喵喵灵堂</a></h2>]]></content>
   </entry>
+=======
+>>>>>>> Stashed changes
 </search>
