@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>PyQt初见_强制更新程序</title>
+    <url>/uncategorized/2023/PyQt%E5%88%9D%E8%A7%81-%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="PyQt挺好用"><a href="#PyQt挺好用" class="headerlink" title="PyQt挺好用"></a>PyQt挺好用</h1><h2 id="上源码"><a href="#上源码" class="headerlink" title="上源码"></a>上源码</h2><h3 id="瞎搞的强制更新程序，来练手（"><a href="#瞎搞的强制更新程序，来练手（" class="headerlink" title="瞎搞的强制更新程序，来练手（"></a>瞎搞的强制更新程序，来练手（</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow, QPushButton,QLabel,QProgressBar,QWidget</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QFont</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> QTimer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">updatE</span>(<span class="title class_ inherited__">QMainWindow</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.initUI()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">initUI</span>(<span class="params">self</span>):</span><br><span class="line">        self.setGeometry(<span class="number">100</span>, <span class="number">100</span>, <span class="number">500</span>, <span class="number">200</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">&quot;更新&quot;</span>)</span><br><span class="line"></span><br><span class="line">        self.label=QLabel(<span class="string">&quot;发现新版本,在线更新&quot;</span>,self)</span><br><span class="line">        self.label.setFont(QFont(<span class="string">&quot;Roman times&quot;</span>, <span class="number">15</span>, QFont.Bold))</span><br><span class="line">        self.label.setGeometry(<span class="number">50</span>, <span class="number">40</span>, <span class="number">450</span>, <span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">        self.progressbar = QProgressBar(self)</span><br><span class="line">        self.progressbar.setGeometry(<span class="number">50</span>, <span class="number">140</span>, <span class="number">250</span>, <span class="number">40</span>)</span><br><span class="line">        self.progressbar.setVisible(<span class="literal">False</span>)</span><br><span class="line">        self.timer=QTimer(self)</span><br><span class="line">        self.timer.timeout.connect(self.update_progressbar)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        self.button = QPushButton(<span class="string">&quot;确定&quot;</span>, self)</span><br><span class="line">        self.button.setGeometry(<span class="number">320</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">40</span>)</span><br><span class="line">        self.button.clicked.connect(self.update)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update</span>(<span class="params">self</span>):</span><br><span class="line">        self.progressbar.setVisible(<span class="literal">True</span>)</span><br><span class="line">        self.label.setText(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        self.button.deleteLater()</span><br><span class="line">        self.progressbar.setValue(<span class="number">0</span>)</span><br><span class="line">        self.progressbar.setMaximum(<span class="number">100</span>)</span><br><span class="line">        self.timer.start(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update_progressbar</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.progressbar.value() &lt; <span class="number">100</span>:</span><br><span class="line">            self.progressbar.setValue(self.progressbar.value() + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.timer.stop()</span><br><span class="line">            self.label.setText(<span class="string">&quot;更新完成&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    window = updatE()</span><br><span class="line">    window.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利在千秋</title>
+    <url>/uncategorized/2023/%E5%88%A9%E5%9C%A8%E5%8D%83%E7%A7%8B/</url>
+    <content><![CDATA[<p>王工会偶尔想起大学时工程伦理课上曾在昏昏欲睡中听老师提起过的例子。</p>
+<p>“粘液瘤病毒并没能消灭澳洲的兔子，用以制鼠的猫引发了岛屿鸟类的灭绝，工业革命的滚滚浓烟弄得地球乌烟瘴气——我并不是教育大家要追求环保。”老师敲了敲黑板。“而是希望你们记住一件事，面对一项工程，不能仅仅看到功在当代，更要追求利在千秋。”</p>
+<p>那时的王工还不叫王工，那时的他也还没有秃瓢。还是学生的他问了老师一个问题：</p>
+<h2 id="“那千秋之后呢-”"><a href="#“那千秋之后呢-”" class="headerlink" title="“那千秋之后呢?”"></a>“那千秋之后呢?”</h2><p>老师没有回答，而是摘下了眼镜，宣布下课。</p>
+<p>王工是国家级科创项目，试验型速子计算机“千秋”的工程负责人之一。每天，他都要指挥调动着数千名工人，将建筑材料浇筑成为项目的一部分。而时不时的，会有坐着专车的专家们前来，拿着图纸，对着工程各处指指点点。王工不太清楚细节，但仍明白他们讨论的关键：如何才能让速子计算机搭建成功。</p>
+<p>“它究竟是什么呢?”有一次吃午饭的时候，王工在食堂里揪住了那些专家里他唯一一个认识的人，李博士问道。“速子计算机……是不是就是升级版的量子计算机?”</p>
+<p>“这个问题很复杂。”供职于中科院计算所的李博士显然被这么问过很多次。“不能一概而论，我们和量子项目部的研究是平行的……”</p>
+<p>接下来的解释，王工在项目会上也都听过。速子计算机是发现速子引发的基础科学革命的一部分，它将成千上万倍颠覆现有计算机速度，是世界各国目前追逐的焦点，实现者足以掌握速子霸权……</p>
+<p>“是，是。”他应和到，“可是，这台机器究竟能干什么呢?是一台算力极强的超算吗?”</p>
+<p>“远不止于此。”李博士的脸上露出了一点学者独有的骄傲。“如果速子模型成立，理论上这台计算机可以进行平行宇宙间的观测。这才是它被建设后的重点应用。”</p>
+<p>“你知道它为什么叫千秋吗?”李博士指了指他胸前的工牌。</p>
+<p>“是各有千秋的千秋?”</p>
+<p>“错。按照估算，它可以预测固定条件下，约千年数量级的未来。这才是它被叫做千秋的原因。”</p>
+<p>一台用来观测未来的预言机器?王工想到，但他害怕博士嘲笑，没敢说出口。</p>
+<p>千秋工程的进展相当顺利。工人们加班加点，让这个半球形的建筑越建越高，而来工地里视察的人物也越来越大。</p>
+<p>终于，项目完工前夕，某位王工只在电视上看见过真容的人物来到了现场。那位人物的演讲里，提到了和王工记忆中相似的内容：</p>
+<h2 id="“决不能埋首寸光于当代，更应登高放眼至千秋！”"><a href="#“决不能埋首寸光于当代，更应登高放眼至千秋！”" class="headerlink" title="“决不能埋首寸光于当代，更应登高放眼至千秋！”"></a>“决不能埋首寸光于当代，更应登高放眼至千秋！”</h2><p>项目完工，千秋的试运行也顺利验收。工程人员们纷纷交班，而科学家们摩拳擦掌，正欲粉墨登场。科学与未来的全新大陆就藏在京郊这座神秘的建筑中。此刻它还潜藏在舞台幕后，但它日后发出的光芒，足以影响整个世界。</p>
+<p>王工作为项目管理人员按要求驻场维护，并继续监督附属建筑群的施工工作。虽是这场伟大剧目的配角，但他也仍旧颇感自豪。</p>
+<p>速子计算机启动，项目运行，爆炸性的消息一一传来。速子计算机的运行效率甚至超过了同等质量原子核的数量上限，这座小楼内的理论计算速度甚至可能可以超过整个宇宙的计算机总和。看来，“千秋”名副其实。</p>
+<p>李博士曾提及的预测未来也成功实现，电子屏幕里人们清晰观测到人类六十年后的未来——至少是其中一种可能性。彼时人类生活的光景日新月异，光怪陆离，令人感叹不已。</p>
+<p>王工也不住好奇起未来的样子。他听说，六十年以后人们已经不再使用肉质身体，浑身装满机械，但又听说，在某些未来中，六十年后的人类抛弃了文明，衣不蔽体形如野兽。</p>
+<p>仅仅是六十年。他想，如果是六百年，六千年呢?按耐不住，他又偷偷找到李博士，想要问清楚心里的问题。他想问问李博士，未来到底长什么样。</p>
+<p>李博士竟未拒绝，而是大方的拉着他走去中控室。原来，速子计算机的算力有一部分开放给公众免费使用，目前正在调试阶段，正可以拿来实验。</p>
+<p>“预测未来只是它功能的一小部分。”李博士仍忍不住吹嘘一下，但手里还是打开了模拟程序。按照程序，速子计算机会发射出一道速子簇，这道速子簇会在瞬息间传遍宇宙，这时再通过接收超膜上的速子场反射数据，就可以读取出平行宇宙下的预测结果。介于精度，目前只能预测到最多一千年后。</p>
+<p>屏幕上，地球不停旋转，旁边那些王工看不懂的数据飞速滚动着。下面，有一个轴似乎控制的是时间，如今已经指示到了一百年后。</p>
+<p>“让我们拉近了看。”李博士把焦点靠近。画面如电影般从远景切入了地球的近景，又直到地面。甚至，相机的角度还调整为了平行状态，现在的视角，就仿佛真的行走在百年之后。</p>
+<p>“挺好，看来这个未来没有爆发核战。”李博士打开搜索，把视角切到一座城市中。“看，这就是百年之后的我们的一种可能性。”</p>
+<p>这回王工看得真切。洁白的城市里人们奇形怪状，赤身裸体，一旁有机器巡游。场景虽然科幻——但也没那么科幻。</p>
+<p>“这里好像是一百年后的上海。”李博士查阅着数据。“已经几乎认不出来了，就连黄浦江都改道了。”</p>
+<p>“真的假的?”王工来了兴趣。“几年前，我们刚刚在上海干过工程。你知道的，就是那个新的第一高楼。当时还说，要以矗立百年为目标呢！你这里能找见吗?再仔细看看?”</p>
+<p>没有。画面多次切换，其他地标有不少仍在，但就是没有那座显眼的新建筑。</p>
+<p>“可惜。”王工摇了摇头。</p>
+<p>“查到了原因。”李博士从档案馆里识别出一份文档。“原来，那座楼在建成五十年后，遇上了反重力运输革命。为了修建空中车道，只能将挡在路上的超高建筑们一并拆毁。”李博士也摇了摇头。“看来，下次得去旅游一趟，免得看不见了。”</p>
+<p>“功在当代，利在千秋。”王工低着头，喃喃念道。作为人类，我们的似乎太过短浅，莫说千年，几十年的变故都无从料到。</p>
+<p>王工还提起其他几个自己经手过的工程。有三成弃毁，三成崩塌，只剩下四成还算是矗立百年。那些留到最后的，反倒是些不起眼的小角色，比如一个在山洞里挖厕所的行为艺术项目，竟能一直活到“千秋”观测不到为止。</p>
+<p>“这样一来，岂不是只有这些边边角角的东西还有价值?”王工突然有些难过。“其他的，功只在一时，千百年之后，要么消失，要么成了麻烦。”</p>
+<p>“呵。”李博士又笑了，他笑王工见识短浅。“丢了几座高楼就闷闷不乐了?来，我给你看几个。”</p>
+<p>他打开面板，设定了一些参数。这是“千秋”的另一大功能，可以模拟特定情况和条件下的未来，来辅助决策和规划。李博士把一个早已准备好的参数包丢进去，然后开始演算。</p>
+<p>这一回，百年之后，地球上竟没有人了。</p>
+<p>王工惊奇的看着这个空空如也的世界，又疑惑李博士做了什么。</p>
+<p>“你想不到吧。刚才输进去的条件，是一次基因普查。”他说。“只是把现在的基因筛查的规模扩大至整个人类——听起来是一件功德无量的好事，却引发了九十多年以后的烈性瘟疫，以至于人类荡然无存。”</p>
+<p>“类似的例子数不胜数。”博士调出这些天试运行的部分录像和数据。</p>
+<p>“宣布战争，让地区陷入核威胁状态，引发了小规模核战，却促使数十年后核裁军顺利进行，保证了百年后的和平。”</p>
+<p>“普及教育，提高了某地区的识字率，导致了当地工业化的迅猛发展，却因其大规模破坏当地生态系统，引发了洋流中断，北半球一片冰霜。”</p>
+<p>“工业革命以来温室气体大量排放，却因为某些复杂的效应导致气候重新变冷。”</p>
+<p>“研究脑科学，却因为研发出可以精神控制他人的有效办法，导致全人类失去自由……”</p>
+<p>“以人类的眼光，很难很难去想象某件事在时间上的意义。虽然大部分情况下，它们拥有正面作用。但依靠‘千秋’，我们发现，仍旧有很多时候，它们的好处没有那么大，或者弊大于利。”</p>
+<p>李博士仍旧在屏幕前操作着。王工看见，他的眼前是三峡大坝。随着模拟时间的流逝，大坝从水利设施竟变成了一种负担，但假以时日，它竟又承担起其他的作用。到了近千年之后，它发挥的历史作用，已经远远超越此刻和未来的一些低谷，成为了一座文明的丰碑。</p>
+<p>“工程对于人类的收益，是一个随时间变化的复杂函数。只可惜我们只能读取到此刻的值。”李博士躺在了椅子上，似乎是略带遗憾。“恐怕我们只能把握当下，和尽可能远一点点的未来。再远的，我们也无能为力。”</p>
+<p>王工摸着胡子，陷入了沉思。许久，他想起来多年以前，在课上提及的那个问题，再度发问：</p>
+<h2 id="“功在当代，利在千秋。那么，千秋之后呢-”"><a href="#“功在当代，利在千秋。那么，千秋之后呢-”" class="headerlink" title="“功在当代，利在千秋。那么，千秋之后呢?”"></a>“功在当代，利在千秋。那么，千秋之后呢?”</h2><p>李博士的目光也陷入凝滞，他也没能给出答案。</p>
+<p>好在，又过了好些年。这时，速子计算机已经全球普及，美，欧，亚等主要国家都已建设完成基本的速子计算设备，正朝着更高的目标迈进。</p>
+<p>王工则已经退休。千秋项目完结之后，他辞了职，去了不少过去他建设过工程的地方重游。尤其是在上海，那座气派的第一高楼前，留下了许多照片。</p>
+<p>李博士已经成了李副教授，也已在速子应用领域发表了许多重要论文。两人除了当年一见外，联系甚少。</p>
+<p>然而，有一天午夜，王工被一通电话吵醒。电话那头，是语气激动，兴奋，却又有些惶恐的李副教授。</p>
+<p>“王工，还记得以前咱们聊过的问题吗?”</p>
+<p>“怎么了?”</p>
+<p>“千秋之后，是什么，对吗?”</p>
+<p>“是。”几句话，又将王工的思绪拉回到那一天，</p>
+<p>“内部消息，我们更大数量级的速子计算机设备‘万载’已经完工。它有望将预测尺度推广至万年乃至十万年级！”</p>
+<p>“真的?”王工的耳朵紧紧贴在电话前。</p>
+<p>“千真万确！我们还将‘千秋’的建设，作为一项工程导入到了‘万载’的模拟预测之中。”</p>
+<p>“而根据‘万载’的模拟显示，在它预测到的大部分未来里，‘千秋’工程的建设，都是弊大于利的……”</p>
+]]></content>
+      <tags>
+        <tag>小作文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣昨天的每题一日</title>
+    <url>/uncategorized/2023/%E5%8A%9B%E6%89%A3%E6%98%A8%E5%A4%A9%E7%9A%84%E6%AF%8F%E9%A2%98%E4%B8%80%E6%97%A5/</url>
+    <content><![CDATA[<h2 id="据说可以秒掉所以看看喵"><a href="#据说可以秒掉所以看看喵" class="headerlink" title="据说可以秒掉所以看看喵"></a>据说可以秒掉所以看看喵</h2><hr>
+<h1 id="2582-递枕头"><a href="#2582-递枕头" class="headerlink" title="2582 递枕头"></a>2582 递枕头</h1><h2 id="题目简介"><a href="#题目简介" class="headerlink" title="题目简介"></a>题目简介</h2><p>有 n 个人站成一排，按从 1 到 n 编号。</p>
+<p>最初，排在队首的第一个人拿着一个枕头。每秒钟，拿着枕头的人会将枕头传递给队伍中的下一个人。一旦枕头到达队首或队尾，传递方向就会改变，队伍会继续沿相反方向传递枕头。</p>
+<p>给你两个正整数 n 和 time ，返回 time 秒后拿着枕头的人的编号。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p>输入：n &#x3D; 4, time &#x3D; 5<br>输出：2<br>解释：队伍中枕头的传递情况为：1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 3 -&gt; 2 。<br>5 秒后，枕头传递到第 2 个人手中。</p>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><p>输入：n &#x3D; 3, time &#x3D; 2<br>输出：3<br>解释：队伍中枕头的传递情况为：1 -&gt; 2 -&gt; 3 。<br>2 秒后，枕头传递到第 3 个人手中。</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">passThePillow</span>(<span class="params">self, n: <span class="built_in">int</span>, time: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="built_in">dir</span>=<span class="number">1</span></span><br><span class="line">        k=<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(time):</span><br><span class="line">            k+=<span class="built_in">dir</span></span><br><span class="line">            <span class="keyword">if</span> k==n <span class="keyword">or</span> k==<span class="number">1</span>:</span><br><span class="line">                <span class="built_in">dir</span>*=-<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> k</span><br></pre></td></tr></table></figure>
+
+<h3 id="确实能秒的说"><a href="#确实能秒的说" class="headerlink" title="确实能秒的说"></a>确实能秒的说</h3>]]></content>
+      <tags>
+        <tag>每题一日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二战理解linux</title>
+    <url>/uncategorized/2023/%E4%BA%8C%E6%88%98%E7%90%86%E8%A7%A3linux/</url>
+    <content><![CDATA[<h2 id="一些文件夹的名字"><a href="#一些文件夹的名字" class="headerlink" title="一些文件夹的名字"></a>一些文件夹的名字</h2><ul>
+<li><strong>&#x2F;bin</strong>：<br>常用命令目录</li>
+<li><strong>&#x2F;boot：</strong><br>核心文件</li>
+<li><strong>&#x2F;dev ：</strong><br>Device，Linux 的外部设备</li>
+<li><strong>&#x2F;home</strong>：<br>主目录</li>
+<li><strong>&#x2F;lib</strong>：<br>Library基本的动态连接共享库</li>
+<li><strong>&#x2F;root</strong>：<br>管理员主目录</li>
+<li><strong>&#x2F;tmp</strong>：<br>存放临时文件的</li>
+<li><strong>&#x2F;usr</strong>：<br>类似program files目录</li>
+<li><strong>&#x2F;usr&#x2F;bin：</strong><br>系统用户的应用程序</li>
+<li><strong>&#x2F;var</strong>：<br>变量库</li>
+<li><strong>&#x2F;run</strong>：<br>临时文件系统</li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="目录的"><a href="#目录的" class="headerlink" title="目录的"></a>目录的</h3><ul>
+<li><strong>ls</strong>:<br> 列目录<br>-al全部，大概这样<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  drwxr-xr-x  20 root root       4096  6月  5 22:58 .</span><br><span class="line">   drwxr-xr-x  20 root root       4096  6月  5 22:58 ..</span><br><span class="line">   lrwxrwxrwx   1 root root          7  6月  5 22:54 bin -&gt; usr/bin</span><br><span class="line">   drwxr-xr-x   4 root root       4096  6月  8 21:10 boot</span><br><span class="line">   drwxrwxr-x   2 root root       4096  6月  5 22:58 cdrom</span><br><span class="line">   drwxr-xr-x  19 root root       4140  6月  8 20:42 dev</span><br><span class="line">   drwxr-xr-x 130 root root      12288  6月  8 21:23 etc</span><br><span class="line">   drwxr-xr-x   3 root root       4096  6月  5 23:00 home</span><br><span class="line">……</span><br></pre></td></tr></table></figure></li>
+<li><strong>cd、mkdir、cp、mv</strong>:<br> 不解释<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -m配权限 -p连着它的上级一起创</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mv -f强制-i询问覆盖</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -p完全复制连带着属性-f强制-s快捷方式</span><br></pre></td></tr></table></figure></li>
+<li><strong>pwd</strong>:<br> 显示当前地址</li>
+<li><strong>rm</strong>:<br> 删文件<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -f强制-i删前询问-r递归也就是可以杀文件夹</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="看文件的"><a href="#看文件的" class="headerlink" title="看文件的"></a>看文件的</h3><ul>
+<li><strong>cat</strong>:<br> 从第一行显示<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat -b列出有效行号-E显示$终止符-n列出包括空白行号-v列出特殊字符</span><br></pre></td></tr></table></figure></li>
+<li><strong>tac</strong>:<br> 反向显示</li>
+<li><strong>less</strong>:<br> 一页一页翻<br>pagedown&#x2F;up：翻页<br>&#x2F;字串或者？字串：向上&#x2F;向下搜索<br>q：离开</li>
+<li><strong>head&#x2F;tail</strong>：<br> 正向&#x2F;反向取出文件前几行<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">head -n 数字：显示几行</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install 软件</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>幻想生物图鉴1到22在线网页版源码放出</title>
+    <url>/uncategorized/2023/%E5%B9%BB%E6%83%B3%E7%94%9F%E7%89%A9%E5%9B%BE%E9%89%B41%E5%88%B022%E5%9C%A8%E7%BA%BF%E7%BD%91%E9%A1%B5%E7%89%88%E6%BA%90%E7%A0%81%E6%94%BE%E5%87%BA/</url>
+    <content><![CDATA[<h2 id="这是网页版地址："><a href="#这是网页版地址：" class="headerlink" title="这是网页版地址："></a>这是网页版地址：</h2><p><a href="https://shrine.descentdd.top/" title="点啊！！">点我！！！！！</a></p>
+<h2 id="这是部分源代码，生成卡片展示的代码"><a href="#这是部分源代码，生成卡片展示的代码" class="headerlink" title="这是部分源代码，生成卡片展示的代码"></a>这是部分源代码，生成卡片展示的代码</h2><h3 id="纯html5"><a href="#纯html5" class="headerlink" title="纯html5"></a>纯html5</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;（人丸）幻想生物图鉴&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;/* 样式 */</span><br><span class="line">		.card &#123;</span><br><span class="line">			border: 1px solid #ccc;</span><br><span class="line">			border-radius: 5px;</span><br><span class="line">			box-shadow: 2px 2px 5px #ccc;</span><br><span class="line">			padding: 20px;</span><br><span class="line">			margin: 20px;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 350px;</span><br><span class="line">			display: inline-block;</span><br><span class="line">			text-align: center;</span><br><span class="line">			background: #fff;</span><br><span class="line">			overflow: hidden; /* 隐藏溢出的背景 */</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		.card img &#123;</span><br><span class="line">			max-width: 80%;</span><br><span class="line">			max-height: 80%;</span><br><span class="line">			object-fit: cover; /* 拉伸图片以填满框架 */</span><br><span class="line">			object-position: center;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.card h2 &#123;</span><br><span class="line">			font-size: 20px;</span><br><span class="line">			margin: 20px 0;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		.card a &#123;</span><br><span class="line">			display: block;</span><br><span class="line">			margin-top: 20px;</span><br><span class="line">			font-size: 16px;</span><br><span class="line">			text-decoration: none;</span><br><span class="line">			color: #333;</span><br><span class="line">			font-weight: bold;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		.card a:hover &#123;</span><br><span class="line">			color: #0099ff;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	// 定义模板 </span><br><span class="line">	&lt;template id=&quot;card-template&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;card&quot;&gt;</span><br><span class="line">			&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</span><br><span class="line">			&lt;h2&gt;&lt;/h2&gt;</span><br><span class="line">			&lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;点我看看&lt;/a&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 在页面中使用模板循环生成卡片 --&gt;</span><br><span class="line">	&lt;div id=&quot;card-container&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		function createCard(imageSrc, title, link) &#123;</span><br><span class="line">			// 克隆模板的函数</span><br><span class="line">			let template = document.querySelector(&#x27;#card-template&#x27;);</span><br><span class="line">			let card = template.content.cloneNode(true).querySelector(&#x27;.card&#x27;);</span><br><span class="line"></span><br><span class="line">			// 修改卡片的内容</span><br><span class="line">			card.querySelector(&#x27;img&#x27;).src = imageSrc;</span><br><span class="line">			card.querySelector(&#x27;img&#x27;).alt = title;</span><br><span class="line">			card.querySelector(&#x27;h2&#x27;).textContent = title;</span><br><span class="line">			card.querySelector(&#x27;a&#x27;).href = link;</span><br><span class="line"></span><br><span class="line">			// 将卡片添加到容器中</span><br><span class="line">			document.querySelector(&#x27;#card-container&#x27;).appendChild(card);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		// 添加卡片</span><br><span class="line">		createCard(&#x27;sh1/content_data/44_01.jpg&#x27;, &#x27;幻想生物图鉴1&#x27;, &#x27;sh1/data/index.html&#x27;);</span><br><span class="line">//…………后面省略</span><br><span class="line">		createCard(&#x27;sh22/content_data/22_top.jpg&#x27;, &#x27;幻想生物图鉴22&#x27;, &#x27;sh22/data/index.html&#x27;);</span><br><span class="line">		</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="就酱，gpt牛逼"><a href="#就酱，gpt牛逼" class="headerlink" title="就酱，gpt牛逼"></a>就酱，gpt牛逼</h1>]]></content>
+      <tags>
+        <tag>涩涩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日寄和每题一日11.26</title>
+    <url>/uncategorized/2023/%E6%97%A5%E5%AF%84%E5%92%8C%E6%AF%8F%E9%A2%98%E4%B8%80%E6%97%A511-26/</url>
+    <content><![CDATA[<p>bgm:Between Two Worlds</p>
+<iframe src="//player.bilibili.com/player.html?aid=310587249&bvid=BV1BN411c76r&cid=1040276909&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"width="400"height="300"> </iframe>
+
+
+<p>喵喵知道大概就喵喵酱会注意我写东西。</p>
+<h2 id="净…化！"><a href="#净…化！" class="headerlink" title="净…化！"></a>净…化！</h2><p>  喵喵现在感觉很坏。喵喵想把尖钉钉在你身上。<br>  喵喵想要变得可爱。喵喵给你这么多钱钱，但是喵喵还是信不过你，喵喵不认为你知道怎样让喵喵可爱。喵喵有点困困。喵喵就直说，喵喵想要那个很可爱的东西。</p>
+<h2 id="每题一日返工"><a href="#每题一日返工" class="headerlink" title="每题一日返工"></a>每题一日返工</h2><p>  返工返什么啦无非就是那样。<br>  喵喵酱我我看了fds，终于是有时间整fds了，是这么叫吧。喵喵不很懂c。我个人觉得还是从下面看起好点，好玩的东西最终跟我还是无缘，单独追求好玩的话还是打游戏来得正常。喵喵觉得自己很有趣，明明是卷但是硬要加个好玩作为理由。<br>  卷就卷好啦。</p>
+<p>  喵喵不喜欢有些笨蛋，自卑的那种，觉得自己笨笨完蛋了那种。但是喵喵会去接近。喵喵不希望被她看见。喵喵要看悲剧，喵喵喜欢看悲剧。就算它变成了喜剧也无所谓，喵喵都喜欢。</p>
+<p>  喵喵看完这个月刷的题了。喵喵不认为把题干和题解放在一个文章里就算错题本了。喵喵想想办法，能不能提炼点东西。</p>
+<h3 id="喵喵讨厌记笔记，不记了。"><a href="#喵喵讨厌记笔记，不记了。" class="headerlink" title="喵喵讨厌记笔记，不记了。"></a>喵喵讨厌记笔记，不记了。</h3><p>  我手指受了点伤。我去买了点东西在保养。喵喵酱，我没什么希望，我还是只想着变可爱笨蛋被你包养好啦。</p>
+]]></content>
+      <tags>
+        <tag>每题一日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>昨天的每题一日2</title>
+    <url>/uncategorized/2023/%E6%98%A8%E5%A4%A9%E7%9A%84%E6%AF%8F%E9%A2%98%E4%B8%80%E6%97%A52/</url>
+    <content><![CDATA[<h1 id="1331-餐厅过滤器"><a href="#1331-餐厅过滤器" class="headerlink" title="1331 餐厅过滤器"></a>1331 餐厅过滤器</h1><p>给你一个餐馆信息数组 restaurants，其中 restaurants[i] &#x3D; [idi, ratingi, veganFriendlyi, pricei, distancei]。你必须使用以下三个过滤器来过滤这些餐馆信息。</p>
+<p>其中素食者友好过滤器 veganFriendly 的值可以为 true 或者 false，如果为 true 就意味着你应该只包括 veganFriendlyi 为 true 的餐馆，为 false 则意味着可以包括任何餐馆。此外，我们还有最大价格 maxPrice 和最大距离 maxDistance 两个过滤器，它们分别考虑餐厅的价格因素和距离因素的最大值。</p>
+<p>过滤后返回餐馆的 id，按照 rating 从高到低排序。如果 rating 相同，那么按 id 从高到低排序。简单起见， veganFriendlyi 和 veganFriendly 为 true 时取值为 1，为 false 时，取值为 0 。</p>
+<p>示例 1：</p>
+<p>输入：restaurants &#x3D; [[1,4,1,40,10],[2,8,0,50,5],[3,8,1,30,4],[4,10,0,10,3],[5,1,1,15,1]], veganFriendly &#x3D; 1, maxPrice &#x3D; 50, maxDistance &#x3D; 10<br>输出：[3,1,5]<br>解释：<br>这些餐馆为：<br>餐馆 1 [id&#x3D;1, rating&#x3D;4, veganFriendly&#x3D;1, price&#x3D;40, distance&#x3D;10]<br>餐馆 2 [id&#x3D;2, rating&#x3D;8, veganFriendly&#x3D;0, price&#x3D;50, distance&#x3D;5]<br>餐馆 3 [id&#x3D;3, rating&#x3D;8, veganFriendly&#x3D;1, price&#x3D;30, distance&#x3D;4]<br>餐馆 4 [id&#x3D;4, rating&#x3D;10, veganFriendly&#x3D;0, price&#x3D;10, distance&#x3D;3]<br>餐馆 5 [id&#x3D;5, rating&#x3D;1, veganFriendly&#x3D;1, price&#x3D;15, distance&#x3D;1]<br>在按照 veganFriendly &#x3D; 1, maxPrice &#x3D; 50 和 maxDistance &#x3D; 10 进行过滤后，我们得到了餐馆 3, 餐馆 1 和 餐馆 5（按评分从高到低排序）。</p>
+<p>示例 2：</p>
+<p>输入：restaurants &#x3D; [[1,4,1,40,10],[2,8,0,50,5],[3,8,1,30,4],[4,10,0,10,3],[5,1,1,15,1]], veganFriendly &#x3D; 0, maxPrice &#x3D; 50, maxDistance &#x3D; 10<br>输出：[4,3,2,1,5]<br>解释：餐馆与示例 1 相同，但在 veganFriendly &#x3D; 0 的过滤条件下，应该考虑所有餐馆。</p>
+<p>示例 3：</p>
+<p>输入：restaurants &#x3D; [[1,4,1,40,10],[2,8,0,50,5],[3,8,1,30,4],[4,10,0,10,3],[5,1,1,15,1]], veganFriendly &#x3D; 0, maxPrice &#x3D; 30, maxDistance &#x3D; 3<br>输出：[4,5]</p>
+<p>提示：</p>
+<p>1 &lt;&#x3D; restaurants.length &lt;&#x3D; 10^4<br>restaurants[i].length &#x3D;&#x3D; 5<br>1 &lt;&#x3D; idi, ratingi, pricei, distancei &lt;&#x3D; 10^5<br>1 &lt;&#x3D; maxPrice, maxDistance &lt;&#x3D; 10^5<br>veganFriendlyi 和 veganFriendly 的值为 0 或 1 。<br>所有 id 各不相同。</p>
+<hr>
+<h1 id="阿巴阿巴"><a href="#阿巴阿巴" class="headerlink" title="阿巴阿巴"></a>阿巴阿巴</h1><h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>先考虑素食友好筛掉一些，再根据那些奇奇怪怪条件筛掉另外，最后排序。喵喵只会那个什么方法来着？冒泡</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">filterRestaurants</span>(<span class="params">self, restaurants: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], veganFriendly: <span class="built_in">int</span>, maxPrice: <span class="built_in">int</span>, maxDistance: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="keyword">if</span> veganFriendly==<span class="number">1</span>:</span><br><span class="line">            restaurants=[rest <span class="keyword">for</span> rest <span class="keyword">in</span> restaurants <span class="keyword">if</span> rest[<span class="number">2</span>]==<span class="number">1</span>]</span><br><span class="line">        restaurants=[rest <span class="keyword">for</span> rest <span class="keyword">in</span> restaurants <span class="keyword">if</span> rest[<span class="number">3</span>]&lt;=maxPrice <span class="keyword">and</span> rest[<span class="number">4</span>]&lt;=maxDistance]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(restaurants)-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(restaurants)-<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> restaurants[i][<span class="number">1</span>]&lt;restaurants[j][<span class="number">1</span>]:</span><br><span class="line">                    rest=restaurants[i]</span><br><span class="line">                    restaurants[i]=restaurants[j]</span><br><span class="line">                    restaurants[j]=rest</span><br><span class="line">        <span class="keyword">return</span> [i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> restaurants]</span><br></pre></td></tr></table></figure>
+
+<p>23 &#x2F; 53 个通过的测试用例</p>
+<h2 id="乌乌冒泡都排错了我是笨蛋"><a href="#乌乌冒泡都排错了我是笨蛋" class="headerlink" title="乌乌冒泡都排错了我是笨蛋"></a>乌乌冒泡都排错了我是笨蛋</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">filterRestaurants</span>(<span class="params">self, restaurants: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], veganFriendly: <span class="built_in">int</span>, maxPrice: <span class="built_in">int</span>, maxDistance: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="keyword">if</span> veganFriendly==<span class="number">1</span>:</span><br><span class="line">            restaurants=[rest <span class="keyword">for</span> rest <span class="keyword">in</span> restaurants <span class="keyword">if</span> rest[<span class="number">2</span>]==<span class="number">1</span>]</span><br><span class="line">        restaurants=[rest <span class="keyword">for</span> rest <span class="keyword">in</span> restaurants <span class="keyword">if</span> rest[<span class="number">3</span>]&lt;=maxPrice <span class="keyword">and</span> rest[<span class="number">4</span>]&lt;=maxDistance]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(restaurants)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(restaurants)):</span><br><span class="line">                <span class="keyword">if</span> restaurants[i][<span class="number">1</span>]&lt;restaurants[j][<span class="number">1</span>]:</span><br><span class="line">                    rest=restaurants[i]</span><br><span class="line">                    restaurants[i]=restaurants[j]</span><br><span class="line">                    restaurants[j]=rest</span><br><span class="line">        <span class="keyword">return</span> [i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> restaurants]</span><br></pre></td></tr></table></figure>
+
+<p>52 &#x2F; 53 个通过的测试用例</p>
+<h2 id="乌乌忘记当rating一样情况惹"><a href="#乌乌忘记当rating一样情况惹" class="headerlink" title="乌乌忘记当rating一样情况惹"></a>乌乌忘记当rating一样情况惹</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">filterRestaurants</span>(<span class="params">self, restaurants: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], veganFriendly: <span class="built_in">int</span>, maxPrice: <span class="built_in">int</span>, maxDistance: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="keyword">if</span> veganFriendly==<span class="number">1</span>:</span><br><span class="line">            restaurants=[rest <span class="keyword">for</span> rest <span class="keyword">in</span> restaurants <span class="keyword">if</span> rest[<span class="number">2</span>]==<span class="number">1</span>]</span><br><span class="line">        restaurants=[rest <span class="keyword">for</span> rest <span class="keyword">in</span> restaurants <span class="keyword">if</span> rest[<span class="number">3</span>]&lt;=maxPrice <span class="keyword">and</span> rest[<span class="number">4</span>]&lt;=maxDistance]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(restaurants)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(restaurants)):</span><br><span class="line">                <span class="keyword">if</span> restaurants[i][<span class="number">1</span>]&lt;restaurants[j][<span class="number">1</span>] <span class="keyword">or</span>(restaurants[i][<span class="number">1</span>]==restaurants[j][<span class="number">1</span>] <span class="keyword">and</span> restaurants[i][<span class="number">0</span>]&lt;restaurants[j][<span class="number">0</span>]):</span><br><span class="line">                    rest=restaurants[i]</span><br><span class="line">                    restaurants[i]=restaurants[j]</span><br><span class="line">                    restaurants[j]=rest</span><br><span class="line">               </span><br><span class="line">        <span class="keyword">return</span> [i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> restaurants]</span><br></pre></td></tr></table></figure>
+
+<p>496ms</p>
+<p>击败 5.46%使用 Python3 的用户</p>
+<h1 id="阿巴阿巴阿巴"><a href="#阿巴阿巴阿巴" class="headerlink" title="阿巴阿巴阿巴"></a>阿巴阿巴阿巴</h1><p>摆了</p>
+]]></content>
+      <tags>
+        <tag>每题一日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>昨天的每题一日3</title>
+    <url>/uncategorized/2023/%E6%98%A8%E5%A4%A9%E7%9A%84%E6%AF%8F%E9%A2%98%E4%B8%80%E6%97%A53/</url>
+    <content><![CDATA[<h2 id="bgm"><a href="#bgm" class="headerlink" title="bgm"></a>bgm</h2><iframe src="//player.bilibili.com/player.html?aid=357095380&bvid=BV1qX4y1t7u2&cid=1262362652&p=1" width="400" height="300"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+***
+
+
+
+
+
+<h1 id="2251-花期内花的数目"><a href="#2251-花期内花的数目" class="headerlink" title="2251. 花期内花的数目"></a>2251. 花期内花的数目</h1><p>给你一个下标从 0 开始的二维整数数组 flowers ，其中 flowers[i] &#x3D; [starti, endi] 表示第 i 朵花的 花期 从 starti 到 endi （都 包含）。同时给你一个下标从 0 开始大小为 n 的整数数组 people ，people[i] 是第 i 个人来看花的时间。</p>
+<p>请你返回一个大小为 n 的整数数组 answer ，其中 answer[i]是第 i 个人到达时在花期内花的 数目 。</p>
+<p>示例 1：</p>
+<p>输入：flowers &#x3D; [[1,6],[3,7],[9,12],[4,13]], people &#x3D; [2,3,7,11]<br>输出：[1,2,2,2]<br>解释：上图展示了每朵花的花期时间，和每个人的到达时间。<br>对每个人，我们返回他们到达时在花期内花的数目。</p>
+<p>示例 2：</p>
+<p>输入：flowers &#x3D; [[1,10],[3,3]], people &#x3D; [3,3,2]<br>输出：[2,2,1]<br>解释：上图展示了每朵花的花期时间，和每个人的到达时间。<br>对每个人，我们返回他们到达时在花期内花的数目。</p>
+<p>提示：</p>
+<p>1 &lt;&#x3D; flowers.length &lt;&#x3D; 5 * 10^4<br>flowers[i].length &#x3D;&#x3D; 2<br>1 &lt;&#x3D; starti &lt;&#x3D; endi &lt;&#x3D; 10^9<br>1 &lt;&#x3D; people.length &lt;&#x3D; 5 * 10^4<br>1 &lt;&#x3D; people[i] &lt;&#x3D; 10^9</p>
+<hr>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fullBloomFlowers</span>(<span class="params">self, flowers: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], people: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="built_in">sum</span>=[<span class="number">0</span>]*<span class="built_in">len</span>(people)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(flowers)):</span><br><span class="line">                <span class="keyword">if</span> people[i]&lt;=flowers[j][<span class="number">1</span>] <span class="keyword">and</span> people[i]&gt;=flowers[j][<span class="number">0</span>]:</span><br><span class="line">                    <span class="built_in">sum</span>[i]+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span></span><br></pre></td></tr></table></figure>
+
+<p>超时45 &#x2F; 52 个通过的测试用例</p>
+<p>先排序再整个bisect什么的</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fullBloomFlowers</span>(<span class="params">self, flowers: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], people: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        n=<span class="built_in">len</span>(people)</span><br><span class="line">        <span class="built_in">sum</span>=[<span class="number">0</span>]*n</span><br><span class="line">        st=<span class="built_in">sorted</span>(s <span class="keyword">for</span> s,e <span class="keyword">in</span> flowers)</span><br><span class="line">        ed=<span class="built_in">sorted</span>(e <span class="keyword">for</span> s,e <span class="keyword">in</span> flowers)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            k=people[i]</span><br><span class="line">            <span class="built_in">sum</span>[i]=bisect_right(st,k)-bisect_left(ed,k)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span></span><br></pre></td></tr></table></figure>
+
+<p>192ms,39.3mb,差不多啦</p>
+<h2 id="bisect啥玩意的用法"><a href="#bisect啥玩意的用法" class="headerlink" title="bisect啥玩意的用法"></a>bisect啥玩意的用法</h2><p>是py内置二分查找</p>
+<p><code>bisect</code> 模块中最常用的方法是 <code>bisect()</code>，查找一个元素在有序列表中应该插入的位置。这个方法采用二分查找的方式，所以是logn</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">bisect.insort(my_list, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list)  <span class="comment">#  [1, 3, 4, 5, 7, 9]</span></span><br><span class="line"></span><br><span class="line">position = bisect.bisect(my_list, <span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(position)  <span class="comment">#  4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><p><code>bisect_left()</code>：返回这个元素的最左边，[1,2,2,2,2,2,3],返回第一个2位置</p>
+</li>
+<li><p><code>bisect_right()</code>：返回比他大的，也就是上图的第一个3位置</p>
+</li>
+<li><p><code>bisect_left()</code> 和 <code>bisect_right()</code> 的组合查找符合条件的元素的范围</p>
+</li>
+<li><p>不实际插入</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>每题一日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>昨天的每题一日4</title>
+    <url>/uncategorized/2023/%E6%98%A8%E5%A4%A9%E7%9A%84%E6%AF%8F%E9%A2%98%E4%B8%80%E6%97%A54/</url>
+    <content><![CDATA[<h1 id="bgm"><a href="#bgm" class="headerlink" title="bgm"></a>bgm</h1><iframe src="//player.bilibili.com/player.html?aid=568484386&bvid=BV1Vv4y177iL&cid=1051605245&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"height="400"width="300"> </iframe>
+
+<hr>
+<h1 id="605-发配到提瓦特大陆跟植物抢土地"><a href="#605-发配到提瓦特大陆跟植物抢土地" class="headerlink" title="605. 发配到提瓦特大陆跟植物抢土地"></a>605. 发配到提瓦特大陆跟植物抢土地</h1><p>假设有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花不能种植在相邻的地块上，它们会争夺水源，两者都会死去。</p>
+<p>给你一个整数数组 <code>flowerbed</code> 表示花坛，由若干 <code>0</code> 和 <code>1</code> 组成，其中 <code>0</code> 表示没种植花，<code>1</code> 表示种植了花。另有一个数 <code>n</code> ，能否在不打破种植规则的情况下种入 <code>n</code> 朵花？能则返回 <code>true</code> ，不能则返回 <code>false</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：flowerbed = [1,0,0,0,1], n = 1</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：flowerbed = [1,0,0,0,1], n = 2</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
+      <tags>
+        <tag>每题一日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>昨天的每题一日5</title>
+    <url>/uncategorized/2023/%E6%98%A8%E5%A4%A9%E7%9A%84%E6%AF%8F%E9%A2%98%E4%B8%80%E6%97%A55/</url>
+    <content><![CDATA[<h1 id="309-买卖股票的最佳时机含冷冻期"><a href="#309-买卖股票的最佳时机含冷冻期" class="headerlink" title="309. 买卖股票的最佳时机含冷冻期"></a>309. 买卖股票的最佳时机含冷冻期</h1><p>给定一个整数数组<code>prices</code>，其中第 <code>prices[i]</code> 表示第 <code>*i*</code> 天的股票价格 。</p>
+<p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
+<ul>
+<li>卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</li>
+</ul>
+<p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        n = <span class="built_in">len</span>(prices)</span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        b = [-prices[<span class="number">0</span>]] * n  <span class="comment"># 记录每天的买入最大利润</span></span><br><span class="line">        s = [<span class="number">0</span>] * n  <span class="comment"># 记录每天的卖出最大利润</span></span><br><span class="line">        c = <span class="number">0</span>  <span class="comment"># 记录每天的冷却期最大利润</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">            b[i] = <span class="built_in">max</span>(b[i-<span class="number">1</span>], c - prices[i])  <span class="comment"># 更新买入最大利润</span></span><br><span class="line">            s[i] = <span class="built_in">max</span>(s[i-<span class="number">1</span>], b[i-<span class="number">1</span>] + prices[i])  <span class="comment"># 更新卖出最大利润</span></span><br><span class="line">            c = <span class="built_in">max</span>(c, s[i-<span class="number">1</span>])  <span class="comment"># 更新冷却期最大利润</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(c, s[n-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>代码放着。如何靠一个冷却器c来实现冷却？卖出最大利润需要等待一个回合进入c，实际上就是模拟了等待冷却。在等待的时候c还是原来的c。</p>
+<h2 id="bgm"><a href="#bgm" class="headerlink" title="bgm"></a>bgm</h2><iframe src="//player.bilibili.com/player.html?aid=355539424&bvid=BV16X4y1m77B&cid=1111864004&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"width="400"height="300"> </iframe>
+]]></content>
+      <tags>
+        <tag>每题一日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>有笨蛋想玩docker</title>
+    <url>/uncategorized/2023/%E6%9C%89%E7%AC%A8%E8%9B%8B%E6%83%B3%E7%8E%A9docker/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>耶复活啦</title>
+    <url>/uncategorized/2023/%E8%80%B6%E5%A4%8D%E6%B4%BB%E5%95%A6/</url>
+    <content><![CDATA[<h1 id="那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！"><a href="#那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！" class="headerlink" title="那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！"></a>那些笨蛋天天卷算法题所以喵喵才想到自己曾经想过搞技术的说…！</h1><h2 id="喵喵灵堂"><a href="#喵喵灵堂" class="headerlink" title="喵喵灵堂"></a><a href="https://www.descentdd.top/rip.html">喵喵灵堂</a></h2>]]></content>
+  </entry>
+  <entry>
+    <title>速成java失败就摆</title>
+    <url>/uncategorized/2023/%E9%80%9F%E6%88%90java%E5%A4%B1%E8%B4%A5%E5%B0%B1%E6%91%86/</url>
+    <content><![CDATA[<h1 id="bgm"><a href="#bgm" class="headerlink" title="bgm"></a>bgm</h1><iframe src="//player.bilibili.com/player.html?aid=473780827&bvid=BV14T411P79F&cid=854932846&p=1" scrolling="no" border="0" height="300" width="600" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>对象和基本那啥的区别：对象要new一下，而且像指针一样真实伤害，引用本体，基本那啥数据只是引用值，在函数里不能造成函数外全局伤害</p>
+<h1 id="没写完"><a href="#没写完" class="headerlink" title="没写完"></a>没写完</h1>]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爪巴虫实战</title>
+    <url>/uncategorized/2023/%E7%88%AA%E5%B7%B4%E8%99%AB%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<h1 id="爪巴虫！实战！"><a href="#爪巴虫！实战！" class="headerlink" title="爪巴虫！实战！"></a>爪巴虫！实战！</h1><h2 id="派森！启动！"><a href="#派森！启动！" class="headerlink" title="派森！启动！"></a>派森！启动！</h2><h3 id="浏览器！启动！"><a href="#浏览器！启动！" class="headerlink" title="浏览器！启动！"></a>浏览器！启动！</h3><p>F12！启动！<br>源码！看不懂！<br>派恰姆！启动！<br>以下是源码，爬旧博客的相册：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url=<span class="string">&quot;https://old.descentdd.top/about/&quot;</span></span><br><span class="line"></span><br><span class="line">response=requests.get(url=url)</span><br><span class="line">response=re.findall(<span class="string">&quot;&lt;img src=\&quot;(.*?)\&quot; class=\&quot;responsive-img\&quot;&gt;&quot;</span>,response.text)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(response)):</span><br><span class="line">    response[i]=<span class="string">&quot;https://old.descentdd.top/&quot;</span>+response[i][<span class="number">3</span>:]</span><br><span class="line"><span class="built_in">print</span>(response)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(response)):</span><br><span class="line">    req=requests.get(response[i])</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&quot;a<span class="subst">&#123;i&#125;</span>.png&quot;</span>,<span class="string">&quot;wb&quot;</span>)<span class="keyword">as</span> f:</span><br><span class="line">        f.write(req.content)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;done&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="派森！关闭"><a href="#派森！关闭" class="headerlink" title="派森！关闭"></a>派森！关闭</h2><h1 id="圆神！启动！"><a href="#圆神！启动！" class="headerlink" title="圆神！启动！"></a>圆神！启动！</h1>]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单记一下cmd命令</title>
+    <url>/uncategorized/2023/%E7%AE%80%E5%8D%95%E8%AE%B0%E4%B8%80%E4%B8%8Bcmd%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="1、常识"><a href="#1、常识" class="headerlink" title="1、常识"></a>1、常识</h1><p>可以输个help问win系统自己</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">有关某个命令的详细信息，请键入 <span class="built_in">HELP</span> 命令名</span><br><span class="line"><span class="built_in">ASSOC</span>          显示或修改文件扩展名关联。</span><br><span class="line"><span class="built_in">ATTRIB</span>         显示或更改文件属性。</span><br><span class="line"><span class="built_in">BREAK</span>          设置或清除扩展式 CTRL+C 检查。</span><br><span class="line">BCDEDIT        设置启动数据库中的属性以控制启动加载。</span><br><span class="line"><span class="built_in">CACLS</span>          显示或修改文件的访问控制列表(ACL)。</span><br><span class="line"><span class="keyword">CALL</span>           从另一个批处理程序调用这一个。</span><br><span class="line"><span class="built_in">CD</span>             显示当前目录的名称或将其更改。</span><br><span class="line"><span class="built_in">CHCP</span>           显示或设置活动代码页数。</span><br><span class="line"><span class="built_in">CHDIR</span>          显示当前目录的名称或将其更改。</span><br><span class="line"><span class="built_in">CHKDSK</span>         检查磁盘并显示状态报告。</span><br><span class="line"><span class="built_in">CHKNTFS</span>        显示或修改启动时间磁盘检查。</span><br><span class="line"><span class="built_in">CLS</span>            清除屏幕。</span><br><span class="line"><span class="built_in">CMD</span>            打开另一个 Windows 命令解释程序窗口。</span><br><span class="line"><span class="built_in">COLOR</span>          设置默认控制台前景和背景颜色。</span><br><span class="line"><span class="built_in">COMP</span>           比较两个或两套文件的内容。</span><br><span class="line"><span class="built_in">COMPACT</span>        显示或更改 NTFS 分区上文件的压缩。</span><br><span class="line"><span class="built_in">CONVERT</span>        将 FAT 卷转换成 NTFS。你不能转换</span><br><span class="line">               当前驱动器。</span><br><span class="line"><span class="built_in">COPY</span>           将至少一个文件复制到另一个位置。</span><br><span class="line"><span class="built_in">DATE</span>           显示或设置日期。</span><br><span class="line"><span class="built_in">DEL</span>            删除至少一个文件。</span><br><span class="line"><span class="built_in">DIR</span>            显示一个目录中的文件和子目录。</span><br><span class="line">DISKPART       显示或配置磁盘分区属性。</span><br><span class="line"><span class="built_in">DOSKEY</span>         编辑命令行、撤回 Windows 命令并</span><br><span class="line">               创建宏。</span><br><span class="line">DRIVERQUERY    显示当前设备驱动程序状态和属性。</span><br><span class="line"><span class="built_in">ECHO</span>           显示消息，或将命令回显打开或关闭。</span><br><span class="line"><span class="built_in">ENDLOCAL</span>       结束批文件中环境更改的本地化。</span><br><span class="line"><span class="built_in">ERASE</span>          删除一个或多个文件。</span><br><span class="line"><span class="keyword">EXIT</span>           退出 <span class="built_in">CMD</span>.EXE 程序(命令解释程序)。</span><br><span class="line">FC             比较两个文件或两个文件集并显示</span><br><span class="line">               它们之间的不同。</span><br><span class="line"><span class="built_in">FIND</span>           在一个或多个文件中搜索一个文本字符串。</span><br><span class="line"><span class="built_in">FINDSTR</span>        在多个文件中搜索字符串。</span><br><span class="line"><span class="keyword">FOR</span>            为一组文件中的每个文件运行一个指定的命令。</span><br><span class="line"><span class="built_in">FORMAT</span>         格式化磁盘，以便用于 Windows。</span><br><span class="line">FSUTIL         显示或配置文件系统属性。</span><br><span class="line"><span class="built_in">FTYPE</span>          显示或修改在文件扩展名关联中使用的文件</span><br><span class="line">               类型。</span><br><span class="line"><span class="keyword">GOTO</span>           将 Windows 命令解释程序定向到批处理程序</span><br><span class="line">               中某个带标签的行。</span><br><span class="line">GPRESULT       显示计算机或用户的组策略信息。</span><br><span class="line"><span class="built_in">GRAFTABL</span>       使 Windows 在图形模式下显示扩展</span><br><span class="line">               字符集。</span><br><span class="line"><span class="built_in">HELP</span>           提供 Windows 命令的帮助信息。</span><br><span class="line">ICACLS         显示、修改、备份或还原文件和</span><br><span class="line">               目录的 ACL。</span><br><span class="line"><span class="keyword">IF</span>             在批处理程序中执行有条件的处理操作。</span><br><span class="line"><span class="built_in">LABEL</span>          创建、更改或删除磁盘的卷标。</span><br><span class="line"><span class="built_in">MD</span>             创建一个目录。</span><br><span class="line"><span class="built_in">MKDIR</span>          创建一个目录。</span><br><span class="line">MKLINK         创建符号链接和硬链接</span><br><span class="line"><span class="built_in">MODE</span>           配置系统设备。</span><br><span class="line"><span class="built_in">MORE</span>           逐屏显示输出。</span><br><span class="line"><span class="built_in">MOVE</span>           将一个或多个文件从一个目录移动到另一个</span><br><span class="line">               目录。</span><br><span class="line">OPENFILES      显示远程用户为了文件共享而打开的文件。</span><br><span class="line"><span class="built_in">PATH</span>           为可执行文件显示或设置搜索路径。</span><br><span class="line"><span class="built_in">PAUSE</span>          暂停批处理文件的处理并显示消息。</span><br><span class="line"><span class="built_in">POPD</span>           还原通过 <span class="built_in">PUSHD</span> 保存的当前目录的上一个</span><br><span class="line">               值。</span><br><span class="line"><span class="built_in">PRINT</span>          打印一个文本文件。</span><br><span class="line">PROMPT         更改 Windows 命令提示。</span><br><span class="line"><span class="built_in">PUSHD</span>          保存当前目录，然后对其进行更改。</span><br><span class="line"><span class="built_in">RD</span>             删除目录。</span><br><span class="line"><span class="built_in">RECOVER</span>        从损坏的或有缺陷的磁盘中恢复可读信息。</span><br><span class="line"><span class="comment">REM            记录批处理文件或 CONFIG.SYS 中的注释(批注)。</span></span><br><span class="line"><span class="built_in">REN</span>            重命名文件。</span><br><span class="line"><span class="built_in">RENAME</span>         重命名文件。</span><br><span class="line"><span class="built_in">REPLACE</span>        替换文件。</span><br><span class="line"><span class="built_in">RMDIR</span>          删除目录。</span><br><span class="line">ROBOCOPY       复制文件和目录树的高级实用工具</span><br><span class="line"><span class="built_in">SET</span>            显示、设置或删除 Windows 环境变量。</span><br><span class="line"><span class="built_in">SETLOCAL</span>       开始本地化批处理文件中的环境更改。</span><br><span class="line">SC             显示或配置服务(后台进程)。</span><br><span class="line">SCHTASKS       安排在一台计算机上运行命令和程序。</span><br><span class="line"><span class="built_in">SHIFT</span>          调整批处理文件中可替换参数的位置。</span><br><span class="line">SHUTDOWN       允许通过本地或远程方式正确关闭计算机。</span><br><span class="line"><span class="built_in">SORT</span>           对输入排序。</span><br><span class="line"><span class="built_in">START</span>          启动单独的窗口以运行指定的程序或命令。</span><br><span class="line"><span class="built_in">SUBST</span>          将路径与驱动器号关联。</span><br><span class="line">SYSTEMINFO     显示计算机的特定属性和配置。</span><br><span class="line">TASKLIST       显示包括服务在内的所有当前运行的任务。</span><br><span class="line"><span class="built_in">TASKKILL</span>       中止或停止正在运行的进程或应用程序。</span><br><span class="line"><span class="built_in">TIME</span>           显示或设置系统时间。</span><br><span class="line"><span class="built_in">TITLE</span>          设置 <span class="built_in">CMD</span>.EXE 会话的窗口标题。</span><br><span class="line"><span class="built_in">TREE</span>           以图形方式显示驱动程序或路径的目录</span><br><span class="line">               结构。</span><br><span class="line"><span class="built_in">TYPE</span>           显示文本文件的内容。</span><br><span class="line"><span class="built_in">VER</span>            显示 Windows 的版本。</span><br><span class="line"><span class="built_in">VERIFY</span>         告诉 Windows 是否进行验证，以确保文件</span><br><span class="line">               正确写入磁盘。</span><br><span class="line"><span class="built_in">VOL</span>            显示磁盘卷标和序列号。</span><br><span class="line"><span class="built_in">XCOPY</span>          复制文件和目录树。</span><br><span class="line">WMIC           在交互式命令 shell 中显示 WMI 信息。</span><br><span class="line"></span><br><span class="line">有关工具的详细信息，请参阅联机帮助中的命令行参考。</span><br></pre></td></tr></table></figure>
+<p>不讲</p>
+<h1 id="2、网络相关"><a href="#2、网络相关" class="headerlink" title="2、网络相关"></a>2、网络相关</h1><h2 id="看看ip：ping"><a href="#看看ip：ping" class="headerlink" title="看看ip：ping"></a>看看ip：ping</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ping</span> -t（持续发） -n 发送次数 -l 数据长度/字节 </span><br></pre></td></tr></table></figure>
+<p>其他的暂时看不懂</p>
+<h2 id="看看网络：ipconfig"><a href="#看看网络：ipconfig" class="headerlink" title="看看网络：ipconfig"></a>看看网络：ipconfig</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span></span><br></pre></td></tr></table></figure>
+<h1 id="3、文件操作"><a href="#3、文件操作" class="headerlink" title="3、文件操作"></a>3、文件操作</h1><h2 id="抄抄你的：copy"><a href="#抄抄你的：copy" class="headerlink" title="抄抄你的：copy"></a>抄抄你的：copy</h2><ul>
+<li>可以用通配符也就正则<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">copy</span> 文件 目标</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="对比：comp"><a href="#对比：comp" class="headerlink" title="对比：comp"></a>对比：comp</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">comp</span> 文件<span class="number">1</span> 文件<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="改名：rename"><a href="#改名：rename" class="headerlink" title="改名：rename"></a>改名：rename</h2><h2 id="删除：del"><a href="#删除：del" class="headerlink" title="删除：del"></a>删除：del</h2><h2 id="查找：find"><a href="#查找：find" class="headerlink" title="查找：find"></a>查找：find</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">find</span> &quot;string&quot; /i(忽略大小写） 文件路径<span class="number">1</span> 文件路径<span class="number">2</span> ……</span><br></pre></td></tr></table></figure>
+<h1 id="4、目录操作"><a href="#4、目录操作" class="headerlink" title="4、目录操作"></a>4、目录操作</h1><h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><ul>
+<li>其实cd还能显示当前目录来着</li>
+</ul>
+<h2 id="新建目录：mkdir-或者md"><a href="#新建目录：mkdir-或者md" class="headerlink" title="新建目录：mkdir,或者md"></a>新建目录：mkdir,或者md</h2><h2 id="移动：move"><a href="#移动：move" class="headerlink" title="移动：move"></a>移动：move</h2><h2 id="删除目录：rd"><a href="#删除目录：rd" class="headerlink" title="删除目录：rd"></a>删除目录：rd</h2><h1 id="5、程序内部"><a href="#5、程序内部" class="headerlink" title="5、程序内部"></a>5、程序内部</h1><h2 id="改变终端窗口名字：title"><a href="#改变终端窗口名字：title" class="headerlink" title="改变终端窗口名字：title"></a>改变终端窗口名字：title</h2><h2 id="清屏：cls"><a href="#清屏：cls" class="headerlink" title="清屏：cls"></a>清屏：cls</h2><h2 id="相当于print-echo"><a href="#相当于print-echo" class="headerlink" title="相当于print:echo"></a>相当于print:echo</h2><h2 id="设置颜色：color"><a href="#设置颜色：color" class="headerlink" title="设置颜色：color"></a>设置颜色：color</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>颜色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>黑色</td>
+</tr>
+<tr>
+<td>1</td>
+<td>深蓝色</td>
+</tr>
+<tr>
+<td>2</td>
+<td>绿色</td>
+</tr>
+<tr>
+<td>3</td>
+<td>淡蓝色</td>
+</tr>
+<tr>
+<td>4</td>
+<td>红色</td>
+</tr>
+<tr>
+<td>5</td>
+<td>紫红</td>
+</tr>
+<tr>
+<td>6</td>
+<td>深黄</td>
+</tr>
+<tr>
+<td>7</td>
+<td>白色</td>
+</tr>
+</tbody></table>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">color</span> <span class="number">07</span></span><br></pre></td></tr></table></figure>
+<p>黑底白色</p>
+<h2 id="退出：exit"><a href="#退出：exit" class="headerlink" title="退出：exit"></a>退出：exit</h2><h2 id="for函数："><a href="#for函数：" class="headerlink" title="for函数："></a>for函数：</h2><p>讲不清自己看</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> %A <span class="keyword">in</span> (a,b,c) <span class="keyword">do</span> <span class="built_in">echo</span> %A</span><br></pre></td></tr></table></figure>
+<p>则打印3次，分别输出a,b,c</p>
+<h2 id="暂停文件处理并显示输出，也就是输个出先：pause"><a href="#暂停文件处理并显示输出，也就是输个出先：pause" class="headerlink" title="暂停文件处理并显示输出，也就是输个出先：pause"></a>暂停文件处理并显示输出，也就是输个出先：pause</h2><h2 id="设置变量：set"><a href="#设置变量：set" class="headerlink" title="设置变量：set"></a>设置变量：set</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> a=<span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> /p a=输入a的值</span><br></pre></td></tr></table></figure>
+<h1 id="贴一段例程"><a href="#贴一段例程" class="headerlink" title="贴一段例程"></a>贴一段例程</h1><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">:menu</span><br><span class="line"><span class="built_in">echo</span> 请选择您的操作：</span><br><span class="line"><span class="built_in">echo</span> <span class="number">1</span>. 复制</span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span>. 删除</span><br><span class="line"><span class="built_in">echo</span> <span class="number">3</span>. 退出</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> /p choice=请输入数字:</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%choice%</span>&quot;==&quot;<span class="number">1</span>&quot; <span class="keyword">goto</span> <span class="built_in">copy</span></span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%choice%</span>&quot;==&quot;<span class="number">2</span>&quot; <span class="keyword">goto</span> delete</span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%choice%</span>&quot;==&quot;<span class="number">3</span>&quot; <span class="keyword">goto</span> <span class="keyword">exit</span></span><br><span class="line"></span><br><span class="line">:<span class="built_in">copy</span></span><br><span class="line"><span class="built_in">echo</span> 复制</span><br><span class="line"><span class="keyword">goto</span> menu</span><br><span class="line"></span><br><span class="line">:delete</span><br><span class="line"><span class="built_in">echo</span> 删除</span><br><span class="line"><span class="keyword">goto</span> menu</span><br><span class="line"></span><br><span class="line">:<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">echo</span> 退出</span><br></pre></td></tr></table></figure>
+<h2 id="博客里加入图图好麻烦哦……有什么方便的办法嘛"><a href="#博客里加入图图好麻烦哦……有什么方便的办法嘛" class="headerlink" title="博客里加入图图好麻烦哦……有什么方便的办法嘛"></a>博客里加入图图好麻烦哦……有什么方便的办法嘛</h2>]]></content>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+</search>
